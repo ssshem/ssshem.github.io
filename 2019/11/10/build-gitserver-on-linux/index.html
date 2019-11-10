@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Welcome To My World | ssshem">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="Git,实践" />
+
+
+<meta name="description" content="服务端操作安装Git及创建用户组、用户123yum install gitgroupadd gitadduser git -g git
+
+禁止用户git登录修改/etc/passwd文件： 找到..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    在服务器搭建git服务器 |
+    
+    Welcome To My World | ssshem
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Welcome To My World | ssshem" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+</head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    http://snippet.shenliyang.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title=''>
+            <img src="/img/avatar1.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <h2>
+                Welcome To My World
+            </h2>
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        Welcome To My World | ssshem</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/运维/"><i class="fa "></i>
+                                运维</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="在服务器搭建git服务器">
+            
+            在服务器搭建git服务器
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Git/" rel="tag">Git</a> <a class="tag-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/11/10</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="服务端操作"><a href="#服务端操作" class="headerlink" title="服务端操作"></a>服务端操作</h3><h4 id="安装Git及创建用户组、用户"><a href="#安装Git及创建用户组、用户" class="headerlink" title="安装Git及创建用户组、用户"></a>安装Git及创建用户组、用户</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br><span class="line">groupadd git</span><br><span class="line">adduser git -g git</span><br></pre></td></tr></table></figure>
+
+<h4 id="禁止用户git登录"><a href="#禁止用户git登录" class="headerlink" title="禁止用户git登录"></a>禁止用户git登录</h4><p>修改/etc/passwd文件：<br/><br> 找到这句： git:x:503:503::/home/git:/bin/bash<br/><br> 改为： git:x:503:503::/home/git:/usr/bin/git-shell<br/><br>git-shell这个命令地址有可能不是/usr/bin/git-shell，最好用which git-shell命令查看一下，确保命令地址正确。</p>
+<h4 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/git/.ssh</span><br><span class="line">chmod 700 /home/git/.ssh</span><br><span class="line">chown -R git:git /home/git/.ssh/</span><br><span class="line">touch /home/git/.ssh/authorized_keys</span><br><span class="line">chmod 600 /home/git/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h4 id="启用免密登录"><a href="#启用免密登录" class="headerlink" title="启用免密登录"></a>启用免密登录</h4><p>/etc/ssh/sshd_config，启用该文件中以下三项内容：</p>
+<p>RSAAuthentication yes</p>
+<p>PubkeyAuthentication yes</p>
+<p>AuthorizedKeysFile .ssh/authorized_keys</p>
+<p>然后重启ssh服务：service sshd restart</p>
+<h4 id="创建git仓库"><a href="#创建git仓库" class="headerlink" title="创建git仓库"></a>创建git仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cd /srv</span><br><span class="line">$ mkdir gitrepo</span><br><span class="line">$ chown git:git gitrepo/</span><br><span class="line">$ cd gitrepo</span><br><span class="line"># 创建一个空的Git仓库，服务器上的Git仓库通常都以.git结尾 </span><br><span class="line">$ git init --bare project-name.git</span><br><span class="line"># 将仓库所属用户改为git </span><br><span class="line">$ chown -R git:git project.git</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="客户端操作"><a href="#客户端操作" class="headerlink" title="客户端操作"></a>客户端操作</h3><p>生成密钥ssh-keygen -t rsa -C “<a href="mailto:youremail@xxx.com" target="_blank" rel="noopener">youremail@xxx.com</a>“</p>
+<p>如果不想以后使用时再输入密码，就一路回车，会生成id_rsa密钥文件和id_rsa.pub公钥文件，存放的地址会默认放在c:/Users/Shem/.ssh目录下。</p>
+<p>如果有用户密码：可以使用命令将密钥追加到服务器git用户目录/home/git/.ssh/authorized_keys文件中：ssh root@host ‘mkdir -p /home/git/.ssh &amp;&amp; cat &gt;&gt; /home/git/.ssh/authorized_keys’ &lt; ~/.ssh/id_rsa.pub</p>
+<p>也可以使用root登录后，将公钥内容直接复制，vim打开/home/git/.ssh/authorized_keys文件粘贴到里面去，一行一个公钥</p>
+<h4 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h4><p>git clone <a href="mailto:git@xxx.xxx.xxx.xxx" target="_blank" rel="noopener">git@xxx.xxx.xxx.xxx</a>:/srv/gitrepo/project-name.git（默认ssh端口为22）</p>
+<p>git clone ssh://git@xxx.xxx.xxx.xxx:22/srv/gitrepo/project-name.git</p>
+<p>如果ssh端口不是22，则需要修改此命令</p>
+<h4 id="免密访问失效的原因"><a href="#免密访问失效的原因" class="headerlink" title="免密访问失效的原因"></a>免密访问失效的原因</h4><ol>
+<li>可能是以上操作中的文件或者目录权限不正确，需要检查一遍</li>
+<li>可能是selinux的开启导致</li>
+<li>可能是以上操作“禁止用户git登录”导致的，则需要取消这个操作</li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.cnblogs.com/php-studys/p/7809991.html" target="_blank" rel="noopener">Git简单生成公钥和私钥的方法</a></li>
+<li><a href="https://linux.cn/article-9858-1.html" target="_blank" rel="noopener">搭建属于你自己的 Git 服务器</a></li>
+<li><a href="https://www.cnblogs.com/shijiaoyun/p/9663396.html" target="_blank" rel="noopener">Git服务器搭建之CentOs7-阿里云搭建</a></li>
+<li><a href="https://blog.csdn.net/chuyouyinghe/article/details/78682332" target="_blank" rel="noopener">Linux下实现免密登录</a></li>
+<li><a href="https://blog.csdn.net/qq_39698293/article/details/79505285" target="_blank" rel="noopener">selinux 开启和关闭</a></li>
+<li><a href="https://www.cnblogs.com/luozx207/p/9628195.html" target="_blank" rel="noopener">Centos服务器ssh免密登录以及搭建私有git服务器</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">SSH原理与运用（一）：远程登录</a></li>
+<li><a href="https://blog.csdn.net/yeah_lang/article/details/45246595" target="_blank" rel="noopener">搭建git服务器ssh免密码登录问题</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">ssshem</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端操作"><span class="toc-text">服务端操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Git及创建用户组、用户"><span class="toc-text">安装Git及创建用户组、用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#禁止用户git登录"><span class="toc-text">禁止用户git登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建证书登录"><span class="toc-text">创建证书登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用免密登录"><span class="toc-text">启用免密登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建git仓库"><span class="toc-text">创建git仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端操作"><span class="toc-text">客户端操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拉取项目"><span class="toc-text">拉取项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#免密访问失效的原因"><span class="toc-text">免密访问失效的原因</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>

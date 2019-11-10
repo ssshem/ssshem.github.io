@@ -33,7 +33,7 @@
 
 <title>
     
-    归档：2019/11 |
+    标签: 实践 |
     
     Welcome To My World | ssshem
 </title>
@@ -137,36 +137,41 @@
         <div class="container">
             <div class="row">
                 <main class="col-md-8 main-content ">
-                    <div id="main">
-    <div class="timebox">
-        <div class="timeline">
-            <ul>
-                
-                
-                
-                
-                
-                
-                <h2>
-                    2019
-                </h2>
-                
-                
-                <li class="">
-                    
-                    <h3>
-                        10<span>
-                            11月</span>
-                    </h3>
-                    <a href="/2019/11/10/build-gitserver-on-linux/" title="在服务器搭建git服务器" target="_blank">
-                        在服务器搭建git服务器</a>
-                </li>
-                
-                
-            </ul>
+                    <ol class="breadcrumb">
+    
+    <li>
+        实践
+    </li>
+    
+    
+</ol>
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2019/11/10/build-gitserver-on-linux/">
+                    在服务器搭建git服务器</a>
+            </h1>
+            <div class="post-meta"> &bull;
+                <time class="post-date" datetime="" title="">
+                    2019年11月10日
+                </time>
+            </div>
         </div>
+        <p class="brief">
+            
+            服务端操作安装Git及创建用户组、用户123yum install gitgroupadd gitadduser git -g git
+
+禁止用户git登录修改/etc/passwd文件： 找到这句： git:x:503:503::/home/git:/bin/bash 改为： git:x:503:503::/home/git:/usr/bin/git-shellgit-shell这个命令地址有可能不是/usr/bin/git-shell，最好用which git-shell命令查看一下，确保命令地址正确。
+创建证书登录12345mkdir /home/git/.sshchmod 700...
+            
+        </p>
     </div>
-</div>
+</article>
+
+
                 </main>
                 
                     
